@@ -1,0 +1,37 @@
+body {
+  background-color: var(--background1);
+}
+
+#content-div {
+  /* width: "100%"; */
+  flex-flow: wrap;
+  display: flex;
+  flex-direction: "column";
+  justify-content: "center";
+  height: 100%;
+  /* width: 60%; */
+  /* margin-left: 40vh; */
+  /* display: table-cell; */
+}
+
+#canvas-div {
+  /* width: 100%; */
+  display: flex;
+  justify-content: "center";
+}
+#canvas {
+  /* width: 100%; */
+  height: 100vh;
+}
+
+
+#buttons-div {
+    /* background-color: #fff; */
+    width: 100%; /* Set width to 30% */
+    display: flex;
+    flex-direction: row;
+    padding: 5vh;
+    justify-content: space-evenly; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    margin: 0 20vh;
+}

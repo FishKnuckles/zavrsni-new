@@ -1,0 +1,30 @@
+function isValid() {
+    let rowSet = new Set();
+    let columnSet = new Set();
+    let boxSet = new Set();
+
+    for (let row = 0; row < grid.length; row++) {
+        for (let col = 0; col < grid.length; col++) {
+            let rowNum = grid[row][col];
+            let columnNum = grid[col][row];
+            let boxNum = grid[3 * Math.floor(row/3) + Math.floor(col/3)][((row * 3) % 9) + (col % 3)];
+
+            if(rowNum !== "0") {
+                if (rowSet.has(rowNum)) return false;
+                rowSet.add(rowNum);
+            }
+            if(columnNum !== "0") {
+                if (columnSet.has(columnNum)) return false;
+                columnSet.add(columnNum);
+            }
+            if(boxNum !== "0") {
+                if (boxSet.has(boxNum)) return false;
+                boxSet.add(boxNum);
+            }
+        }
+        rowSet.clear();
+        columnSet.clear();
+        boxSet.clear();
+    }
+    return true;
+}

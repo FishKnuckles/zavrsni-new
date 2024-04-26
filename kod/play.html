@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play</title>
+    <link rel="stylesheet" href="./styles/play.css">
+</head>
+<body>
+    <script src="collapsedSidebar.js"></script>
+    <script src="sidebar.js"></script>
+    <div id="content-div">
+        <div id="canvas-div">
+            <canvas id="canvas"></canvas>
+        </div>
+
+        <div id="buttons-div">
+            <div id="check-div">
+                <button class="button-54" role="button" id="check" onclick="check()">Check!</button>
+                <p>Check if your sudoku grid is valid!</p>
+            </div>
+            <div id="solve-div">
+                <button class="button-54" role="button" id="solve" onclick="solve()">Solve!</button>
+                <p>Check if your sudoku grid is solveable!</p>
+            </div>
+            <div id="play-div">
+                <button class="button-54" role="button" id="play" onclick="play()">Play!</button>
+                <p>Go on and play your freshly created sudoku!</p>
+            </div>
+        </div>
+    </div>
+    <script src="./play.js"></script>
+</body>
+</html>

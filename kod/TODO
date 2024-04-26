@@ -1,0 +1,13 @@
+- aj nemoj da ti sidebar bude kod koji treba bit global
+- canvas-div height nije isti kao canvas height
+- minimizeana verzija sidebara
+- fixaj debljinu crta grida
+- fix debljinu crta na zoom
+- uskladi boju logoa i stranice
+- napravi da borderi ne skracuju grid, nego da ga zapravo okruzuju
+ --> fucked up upis inace; desni border se counta kao da je u gridu
+- zasto te grid napada
+- info page ti ima sjeban sidebar
+- alignat tekst u sidebaru
+- napravit sidebar koji se rasiruje na hover
+- popravit selection u gridu takda nije malo nadesno

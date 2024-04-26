@@ -1,0 +1,14 @@
+body {
+    background-color: var(--background1);
+    display: table;
+}
+
+#content-div {
+    width: 60%;
+    margin-left: 40vh;
+    display: table-cell;
+}
+
+canvas {
+    height: 100vh;
+}

@@ -1,0 +1,5 @@
+addEventListener
+recursion
+isValid
+Solve
+var
