@@ -1,7 +1,3 @@
-body {
-    background-color: var(--background1);
-}
-
 .main-page {
     width: 100%;
     display: flex;

@@ -12,7 +12,7 @@ document.write(`
                     </span>
                     <span class="link-text">Play</span>
                 </a>
-                <a class="nav-link" href="./create.html">
+                <a class="nav-link" href="./howToUse.html">
                     <span class="material-symbols-outlined">
                         question_mark
                     </span>
