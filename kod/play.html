@@ -14,30 +14,24 @@
             <canvas id="canvas"></canvas>
         </div>
 
-        <div id="buttons-div">
-                        <div id="check-div">
+        <div id="buttons-container">
+            <div id="buttons-div">
                 <button class="button-54" role="button" id="check" onclick="check()">Check!</button>
-                <p>Check if your sudoku grid is valid and solveable!</p>
-            </div>
-            <div id="play-div">
                 <button class="button-54" role="button" id="play" onclick="play()">Submit!</button>
-                <p>Go on and play your freshly created sudoku!</p>
-            </div>
-            <div id="help-div">
                 <button class="button-54" role="button" id="help" onclick="hint()">Hint!</button>
-                <p>Click here to get a hint!</p>
-            </div>
-            <div id="solve-div">
                 <button class="button-54" role="button" id="solve" onclick="solve()">Solve!</button>
-                <p>Solve the sudoku grid!</p>
-            </div>
-            <div id="reset-div">
                 <button class="button-54" role="button" id="reset" onclick="reset()">Reset!</button>
-                <p>Click this button to reset the sudoku grid!</p>
-            </div>
-            <div id="wipe-div">
                 <button class="button-54" role="button" id="wipe" onclick="wipe()">Wipe!</button>
+                <!--<button class="button-54" role="button" id="undo" onclick="undo()">Undo!</button>-->
+            </div>
+            <div id="button-description">
+                <p>Check if you correctly solved this sudoku!</p>
+                <p>Go on and play your freshly created sudoku!</p>
+                <p>Click here to get a hint!</p>
+                <p>Solve the sudoku grid!</p>
+                <p>Click this button to reset the sudoku grid!</p>
                 <p>Click this button to wipe the whole grid!</p>
+                <!--<p>Undo your last move!</p>-->
             </div>
         </div>
     </div>

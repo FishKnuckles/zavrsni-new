@@ -3,7 +3,7 @@ body {
 }
 
 .main-page {
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,7 +12,7 @@ body {
 
 .main-page h1 {
     font-size: 4rem;
-    margin: 50px;
+    margin: 1em auto;
     padding: 32px;
 }
 
@@ -30,3 +30,30 @@ body {
 .island-image-column {
     margin: 20px;
 }
+
+.big-button-54 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 160px;
+    letter-spacing: 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: black;
+    background-color: var(--highlight);
+    cursor: pointer;
+    border: 30px solid;
+    padding: 0.25em 1 em;
+    box-shadow: 10px 10px 0px 0px, 20px 20px 0px 0px, 30px 30px 0px 0px, 40px 40px 0px 0px, 50px 50px 0px 0px;
+    position: relative;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  
+.big-button-54:active {
+    box-shadow: 0px 0px 0px 0px;
+    top: 50px;
+    left: 50px;
+    color: var(--highlight);
+    background-color: var(--background1);
+  }
+  

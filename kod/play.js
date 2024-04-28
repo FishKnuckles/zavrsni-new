@@ -41,8 +41,11 @@ let xOffset;
 let yOffset;
 let canvasOffset;
 let selectedCell = [-1, -1];
+let previouslySelectedCell = [-1, -1];
+let isCellSelected;
 
 function Draw() {
+     ctx.clearRect(0, 0, canvas.width, canvas.height);
     parent_bb = canvas.parentElement.getBoundingClientRect();
     window_bb = document.getElementsByTagName("body")[0].getBoundingClientRect();
     canvas.width = parent_bb.width;
@@ -57,7 +60,8 @@ function Draw() {
 
     ctx.fillStyle = "#271136";
     ctx.fillRect(xOffset, yOffset, gridSize, gridSize);
-    if(!(selectedCell[0] == -1 && selectedCell[1] == -1)){
+    if(isCellSelected){
+        previouslySelectedCell = selectedCell;
         ctx.fillStyle = "#8E58B1";
         console.log(selectedCell[0], selectedCell[1]);
         ctx.fillRect(
@@ -66,8 +70,15 @@ function Draw() {
             cellSize,
             cellSize
         );
-        console.log(xOffset + selectedCell[0]*cellSize,
-            yOffset + selectedCell[1]*cellSize);
+    }
+    else {
+        ctx.fillStyle = "#271136";
+        ctx.fillRect(
+            xOffset + previouslySelectedCell[0]*cellSize,
+            yOffset + previouslySelectedCell[1]*cellSize,
+            cellSize,
+            cellSize
+        );
     }
 
     ctx.strokeStyle = "#57336E";
@@ -106,7 +117,7 @@ function Draw() {
             if (grid[i][j] === originalGrid[i][j]) {
                 // Set font to bold
                 ctx.font = `bold ${fontSize}px Arial`;
-                ctx.fillStyle = "#8E58B1";
+                ctx.fillStyle = "#B489D9";
             }
             ctx.fillText(grid[i][j], x, y);
             ctx.font = `${fontSize}px Arial`;
@@ -118,7 +129,7 @@ function Draw() {
 let possibleNumbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
 function initializeGrids() {
-    check();
+    checkIfValid(originalGrid);
     for(i = 0; i < grid.length; i++) {
         for(j = 0; j < grid.length; j++) {
             grid[i][j] = originalGrid[i][j];
@@ -129,11 +140,10 @@ function initializeGrids() {
 initializeGrids();
 solveSolutionGrid();
 
-canvas.addEventListener("click", (e) => {
+document.addEventListener("click", (e) => {
     const rect = canvas.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-
     if (
         !(
         x >= xOffset &&
@@ -142,15 +152,15 @@ canvas.addEventListener("click", (e) => {
         y <= yOffset + gridSize
         )
     ) {
-        return;
+        isCellSelected = false;
     }
-
-    const selectedColumn = Math.floor((x - xOffset) / cellSize);
-    const selectedRow = Math.floor((y - yOffset) / cellSize);
-
-    // Register the selected cell
-    selectedCell = [selectedColumn, selectedRow];
-
+    else {
+        const selectedColumn = Math.floor((x - xOffset) / cellSize);
+        const selectedRow = Math.floor((y - yOffset) / cellSize);
+        isCellSelected = true;
+        // Register the selected cell
+        selectedCell = [selectedColumn, selectedRow];
+    }
     // Redraw the canvas
     Draw();
     });
@@ -161,7 +171,7 @@ document.addEventListener("keydown", input);
 function input(event){
     if(selectedCell[0] != -1 && selectedCell[1] != -1) {
         if(originalGrid[selectedCell[1]][selectedCell[0]] == "0") {
-            if(event.key >= "1" && event.key <= "9") {
+            if(event.key >= "0" && event.key <= "9") {
                 grid[selectedCell[1]][selectedCell[0]] = event.key;
                 console.log(isValid(event.key,selectedCell[0],selectedCell[1],grid));
             }
@@ -198,16 +208,26 @@ function hint() {
 }
 
 function check() {
+    const checkButton = document.getElementById("check");
+    if(checkIfValid(grid) === true) {
+    checkButton.style.backgroundColor = "green";
+    }
+    else {
+        checkButton.style.backgroundColor = "#C40000";
+    }
+}
+
+function checkIfValid(passedGrid) {
     const rowSet = new Set();
     const colSet = new Set();
     const boxSet = new Set();
 
-    for(let i = 0; i < originalGrid.length; i++) {
-        const row = originalGrid[i];
-        for(let j = 0; j < originalGrid.length; j++) {
+    for(let i = 0; i < passedGrid.length; i++) {
+        const row = passedGrid[i];
+        for(let j = 0; j < passedGrid.length; j++) {
             const rowNum = row[j];
-            const colNum = originalGrid[j][i];
-            const boxNum = originalGrid[3*Math.floor(i/3) + Math.floor(j/3)][((i*3)%9) + (j%3)];
+            const colNum = passedGrid[j][i];
+            const boxNum = passedGrid[3*Math.floor(i/3) + Math.floor(j/3)][((i*3)%9) + (j%3)];
 
             if(rowNum !== "0") {
                 if(rowSet.has(rowNum))
@@ -229,6 +249,7 @@ function check() {
         colSet.clear();
         boxSet.clear();
     }
+    
     return true;
 }
 

@@ -14,50 +14,26 @@ document.write(`
                 </a>
                 <a class="nav-link" href="./create.html">
                     <span class="material-symbols-outlined">
-                        today
+                        question_mark
                     </span>
-                    <span class="link-text">Create grid</span>
-                </a>
-                <a class="nav-link" href="#">
-                    <span class="material-symbols-outlined">
-                        trophy
-                    </span>
-                    <span class="link-text">Leaderboard</span>
-                </a>
-                <a class="nav-link" href="#">
-                    <span class="material-symbols-outlined">
-                        group
-                    </span>
-                    <span class="link-text">Duels</span>
-                </a>
-                <a class="nav-link" href="#">
-                    <span class="material-symbols-outlined">
-                        account_circle
-                    </span>
-                    <span class="link-text">Account</span>
+                    <span class="link-text">How to use</span>
                 </a>
             </div>
         </div>
 
         <div class="sidebar-bottom">
             <div class="sidebar-navigation">
-                <a class="nav-link" href="./help.html">
-                    <span class="material-symbols-outlined">
-                        help
-                    </span>
-                    Help
-                </a>
                 <a class="nav-link" href="./info.html">
                     <span class="material-symbols-outlined">
                         info
                     </span>
                     Info
                 </a>
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="./help.html">
                     <span class="material-symbols-outlined">
-                        settings
+                        help
                     </span>
-                    Settings
+                    Help
                 </a>
             </div>
         </div>
